@@ -1,7 +1,8 @@
 from selenium import webdriver
 import time
 from selenium.webdriver.common.alert import Alert
-
+import random
+import string
 
 driver = webdriver.Chrome(executable_path='chromedriver.exe')
 
@@ -146,3 +147,28 @@ def test_unsuccessful_login():
     print('Step 5: Close driver')
     driver.close()
 
+
+def test_name_button():
+    letters = string.ascii_letters
+    text = ''.join(random.choice(letters) for i in range(10))
+
+    print('Step 1: Open subpage Text input')
+    driver.get('http://uitestingplayground.com/textinput')
+
+    print('Step 2: Enter a randomly generated button name')
+    driver.find_element('xpath', '/html/body/section/div/form/div/input').send_keys(text)
+
+    print('Step 3: Click button')
+    driver.find_element('xpath', '/html/body/section/div/form/div/button').click()
+
+    print('Step 4: Check if the button name has changed')
+    new_button_name = driver.find_element('xpath', '/html/body/section/div/form/div/button').text
+    if text == new_button_name:
+        print('Passed. The button name has changed')
+        assert True
+    else:
+        print('Failed. The button name has not changed')
+        assert False
+
+    print('Step 5: Close driver')
+    driver.close()
