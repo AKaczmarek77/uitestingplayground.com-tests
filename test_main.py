@@ -84,7 +84,7 @@ def test_check_progress_bar_speed():
         assert True
         print('Passed. The loading time was', execution_time)
     else:
-        print('Failed. The loading time exceeded the allowed time by: ', execution_time-acceptable_time)
+        print('Failed. The loading time exceeded the allowed time by: ', execution_time - acceptable_time)
         driver.close()
         assert False
 
@@ -171,4 +171,27 @@ def test_name_button():
         assert False
 
     print('Step 5: Close driver')
+    driver.close()
+
+
+def test_check_if_the_color_of_the_button_changes_only_once():
+
+    print('Step 1: Open subpage Hidden Layers')
+    driver.get('http://uitestingplayground.com/hiddenlayers')
+
+    print('Step 2: Click and check if the color of the button changes once and can only be clicked once')
+    before_click = driver.find_element('xpath', '/html/body/section/div/div[1]/div/button')
+    driver.find_element('xpath', '/html/body/section/div/div[1]/div/button').click()
+    after_click = driver.find_element('xpath', '/html/body/section/div/div[1]/div[2]/button')
+    if before_click != after_click:
+        print('Successfully clicked')
+    else:
+        assert False
+    try:
+        driver.find_element('xpath', '/html/body/section/div/div[1]/div/button').click()
+        assert False
+    except:
+        assert True
+
+    print('Step 3: Close driver')
     driver.close()
