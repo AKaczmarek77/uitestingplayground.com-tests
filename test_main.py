@@ -2,6 +2,7 @@ from selenium import webdriver
 import time
 from selenium.webdriver.common.alert import Alert
 
+
 driver = webdriver.Chrome(executable_path='chromedriver.exe')
 
 
@@ -49,4 +50,42 @@ def test_check_popup():
     alert.accept()
 
     print('Step 4: Close driver')
+    driver.close()
+
+
+def test_check_progress_bar_speed():
+    acceptable_time = 7000
+
+    print('Step 1: Open subpage Progress Bar')
+    driver.get('http://uitestingplayground.com/progressbar')
+
+    print('Step 2: Click start button')
+    driver.find_element('xpath', '/html/body/section/div/button[1]').click()
+
+    print('Step 3: Wait until the bar is finished loading')
+    while True:
+        progress_status = driver.find_element('xpath', '/html/body/section/div/div[1]/div').text
+        print('progress_status: ', progress_status)
+        time.sleep(1)
+        if progress_status == '100%':
+            break
+
+    print('Step 4: Click stop button')
+    driver.find_element('xpath', '/html/body/section/div/button[2]').click()
+
+    print('Step 5: Write out the result')
+    result = driver.find_element('xpath', '/html/body/section/div/div[2]/p').text
+    duration = result[22:]
+    execution_time = int(duration)
+
+    print('Step 6: Check if the loading time has exceeded the allowed time')
+    if execution_time <= acceptable_time:
+        assert True
+        print('Passed. The loading time was', execution_time)
+    else:
+        print('Failed. The loading time exceeded the allowed time by: ', execution_time-acceptable_time)
+        driver.close()
+        assert False
+
+    print('Step 7: Close driver')
     driver.close()
