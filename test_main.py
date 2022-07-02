@@ -89,3 +89,60 @@ def test_check_progress_bar_speed():
 
     print('Step 7: Close driver')
     driver.close()
+
+
+def test_successful_login():
+    username = 'User'
+    password = 'pwd'
+
+    print('Step 1: Open subpage Sample App')
+    driver.get('http://uitestingplayground.com/sampleapp')
+
+    print('Step 2: Enter a valid login and password')
+    driver.find_element('xpath', '/html/body/section/div/div[2]/div/input').send_keys(username)
+    driver.find_element('xpath', '/html/body/section/div/div[3]/div/input').send_keys(password)
+
+    print('Step 3: Click log in button')
+    driver.find_element('xpath', '/html/body/section/div/div[4]/div/button').click()
+
+    print('Step 4: Check if the user logged in')
+    login_status = driver.find_element('xpath', '/html/body/section/div/div[1]/div/label').text
+    acceptable_login_status = 'Welcome, User!'
+    if login_status == acceptable_login_status:
+        print('Passed. Successful login')
+        assert True
+    else:
+        print('Failed. Unsuccessful login')
+        assert False
+
+    print('Step 5: Close driver')
+    driver.close()
+
+
+def test_unsuccessful_login():
+    username = 'UserName'
+    password = 'pxf'
+
+    print('Step 1: Open subpage Sample App')
+    driver.get('http://uitestingplayground.com/sampleapp')
+
+    print('Step 2: Enter an invalid login and password')
+    driver.find_element('xpath', '/html/body/section/div/div[2]/div/input').send_keys(username)
+    driver.find_element('xpath', '/html/body/section/div/div[3]/div/input').send_keys(password)
+
+    print('Step 3: Click log in button')
+    driver.find_element('xpath', '/html/body/section/div/div[4]/div/button').click()
+
+    print('Step 4: Check if the user logged in')
+    login_status = driver.find_element('xpath', '/html/body/section/div/div[1]/div/label').text
+    acceptable_login_status = 'Invalid username/password'
+    if login_status == acceptable_login_status:
+        print('Passed. Unsuccessful login')
+        assert True
+    else:
+        print('Failed. Successful login')
+        assert False
+
+    print('Step 5: Close driver')
+    driver.close()
+
