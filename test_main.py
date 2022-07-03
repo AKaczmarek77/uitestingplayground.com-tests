@@ -78,7 +78,7 @@ def test_check_popup():
     print('Step 1: Open subpage Class Attribute')
     driver.get('http://uitestingplayground.com/classattr')
 
-    print('Step 2: Check if the alert is open')
+    print('Step 2: Check if the alert is open after click a blue button')
     try:
         driver.find_element('xpath',
                             "//button[contains(concat(' ', normalize-space(@class), ' '), ' btn-primary ')]").click()
@@ -201,15 +201,20 @@ def test_check_if_the_color_of_the_button_changes_only_once():
 def test_request_processing_verify():
     # unfinished
     current_attempts = 0
+
+    print('Step 1: Open subpage Client Side Delay')
     driver.get('http://uitestingplayground.com/ajax')
+
+    print('Step 2: Click button triggering client side logic')
     driver.find_element('xpath', '/html/body/section/div/button').click()
+
+    print('Step 3: Wait until request is finished')
     while True:
         time.sleep(1)
         try:
             request = driver.find_element('xpath', '/html/body/section/div/div/p').text
             print('Request: ', request)
             if request == 'Data loaded with AJAX get request.':
-                print('jeden')
                 break
         except NoSuchElementException:
             current_attempts = current_attempts + 1
