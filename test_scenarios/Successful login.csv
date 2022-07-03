@@ -1,0 +1,5 @@
+Steps,	Step Description,	Expected Result
+Step 1, Open subpage, 	Subpage should open
+Step 2, Enter a valid login and password,	It should be possible to enter a valid login and password
+Step 3,	Click log in button,	Log in button should be clicked and trigger operation
+Step 4,	Check if the user logged in,	Website should accept a valid login and password and appear the message 'Welcome User!'

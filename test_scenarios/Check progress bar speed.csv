@@ -1,0 +1,8 @@
+Steps, 	Step Description,	Expected Result
+Step 1,Open subpage, 	Subpage should open
+Step 2,	Click start button,	Start button should be clicked and trigger operation
+Step 3,	Wait until the bar is finished loading to 100%,	Progress bar should reach 100% after some time
+Step 4,	Click stop button,	Stop button should be clicked and trigger operation
+Step 5,	Write out the results,	The given result should be taken and written out
+Step 6,	Check if the loading time has exceeded the allowed time,	The loading time should not exceed the allowed time
+Step 7,	Close subpage,	Subpage should close

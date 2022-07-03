@@ -1,0 +1,6 @@
+Steps,Step Description,Expected Result
+Step 1,Open subpage,Subpage should open
+Step 2,Enter an invalid login and password,It should be possible to enter an invalid login and password
+Step 3,Click log in button,Log in button should be clicked and trigger operation
+Step 4,Check if the user logged in,Website should not accept an invalid login and password and appear the message 'Invalid/ username password'
+Step 5,Close subpage,Subpage should close

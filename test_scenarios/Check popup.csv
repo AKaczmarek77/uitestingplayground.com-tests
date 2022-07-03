@@ -1,0 +1,5 @@
+Steps,	Step Description,	Expected Result
+Step 1, Open subpage, 	Subpage should open
+Step 2, Check if the alert is open after click a blue button,	The alert should appear after click a blue button
+Step 3,	Close the alert by click ok button,	The alert should close by click ok button
+Step 4,	Close subpage, Subpage should close

@@ -1,0 +1,4 @@
+Steps,	Step Description,	Expected Result
+Step 1, Open subpage, Subpage should open
+Step 2, Click and check if the color of the button changes once and can only be clicked once, The button should be clicked and change the color only once from green to blue. The button should be clicked only once
+Step 3, Close subpage,	Subpage should close

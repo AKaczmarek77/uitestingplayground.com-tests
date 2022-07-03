@@ -1,0 +1,4 @@
+Steps,	Step Description,	Expected Result
+Step 1, Open subpage, 	Subpage should open
+Step 2, Click button triggering client side logic,	The button should be clicked and trigger operation
+Step 3, Wait until request is finished,	Request should appear after 15 seconds

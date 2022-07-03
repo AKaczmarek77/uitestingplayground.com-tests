@@ -1,0 +1,7 @@
+Steps, 	Step Description,	Expected Result
+Step 1, Open subpage, 	Subpage should open
+Step 2, Find and save id of button,	The id of the button should be found and saved
+Step 3, Refresh the subpage,	Subpage should refresh
+Step 4, 	Find and save id of button,	The id of the button after a page refresh should be found and saved
+Step 5,	Check if IDs are different, 	IDs of the button should be different
+Step 6,	Close subpage,	Subpage should close

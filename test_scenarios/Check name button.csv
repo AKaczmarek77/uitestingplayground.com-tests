@@ -1,0 +1,6 @@
+Steps,	Step Description,	Expected Result
+Step 1, Open subpage, 	Subpage should open
+Step 2, Enter a randomly generated button name, 	The text field should contain a randomly generated button name
+Step 3, Click button,	The button should be clicked and trigger operation
+Step 4, Check if the button name has changed,	The button name should change to the same one that was randomly generated in the text field
+Step 5,	Close subpage,	Subpage should close
